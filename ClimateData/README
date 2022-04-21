@@ -1,0 +1,8 @@
+Climate data were obtained from the North American Regional Reanalysis (NARR). 
+
+Variables included precipitation (mm), average air temperature (K), wet bulb temperature (degC), dew point temperature (K), realtive humidity (%), and wind speed (m/s).
+Wind speed is broken down into u and v directions, to calculate wind speed: sqrt(u^2 + v^2)
+
+Data were obtained for each day from January 2007 through December 2018 and aggregated to form minimum, average, and maximum monthly values.
+
+See 'cities_loc.txt' for city id key.
