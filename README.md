@@ -8,7 +8,7 @@ Two categories of data were collected: utility data and climate data. The utilit
 
 The code was developed in R version 4.1.2 and last ran on 26 April 2022. The code is contained in the file `climateanaloganalysis.R` and the associated Rdata files can be found in the `rdatafiles` folder. In order to run the code, the following R packages are required: 
 
-*  mvtboost (v0.6.0) Note, this package is no longer available on CRAN and must be downloaded from the author's GitHub (https://github.com/patr1ckm/mvtboost).
+*  mvtboost (v0.6.0) 
 *  stringr (v1.4.0)
 *  measurements (v1.4.0)
 *  gbm (v2.2)
