@@ -13,6 +13,7 @@ The code was developed in R version 4.1.2 and last ran on 26 April 2022. The cod
 *  measurements (v1.4.0)
 *  gbm (v2.2)
 *  ggplot2 (v3.3.5)
+*  cowplot (v1.1.1)
 
 To run the code, we recommend the following steps: 
 
