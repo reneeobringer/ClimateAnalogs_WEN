@@ -34,7 +34,7 @@ library(sf)                 # for plotting
 # NOTE: set this path to the folder on your personal machine which contains the downloaded data
 # for example: path <- '/Users/rqo5125/Downloads/ClimateAnalogs_WEN-main'
 
-path <- '/Users/rqo5125/Library/Mobile Documents/com~apple~CloudDocs/Documents/Research/GitHub/public/ClimateAnalogs_WEN-main' # main file path
+path <- '    ' # main file path
 
 # set directories
 
