@@ -15,6 +15,7 @@ The code was developed in R version 4.1.2 and last ran on 26 April 2022. The cod
 *  ggplot2 (v3.3.5)
 *  cowplot (v1.1.1)
 *  scatterpie (v0.1.7)
+*  dplyr (v1.0.8)
 
 To run the code, we recommend the following steps: 
 
