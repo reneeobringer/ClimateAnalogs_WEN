@@ -1,8 +1,6 @@
 # WaterEnergyDemandNexus
 
-Code and data for an analysis of the water-energy demand nexus using climate analogs of 46 major US cities. The results from the analysis are currently in preparation for publication: 
-
-**add citation**
+Code and data for an analysis of the water-energy demand nexus using climate analogs of 46 major US cities. The results from the analysis are currently in preparation for publication.
 
 Two categories of data were collected: utility data and climate data. The utility data (folder: `UtilityData`) includes water and electricity use data obtained from local utilities. The climate data (folder: `ClimateData`) were obtained from the North American Regional Reanalysis. All data were collected in 2019.
 
@@ -18,6 +16,4 @@ The code was developed in R version 4.1.2 and last ran on 26 April 2022. The cod
 *  dplyr (v1.0.8)
 *  sf (v1.0.6)
 
-To run the code, we recommend the following steps: 
-
-**add directions for changing working directories, etc.**
+To run the code, users need to update the path to the folder downloaded or cloned from this repository. This change can be made on line 37 of `climateanaloganalysis.R`. Once this path is changed, the data directories will be assigned automatically after running lines 41-48 in `climateanaloganalysis.R`. The code can then be run sequentially or users can choose to run different sections, provided they load the rdata files in the `rdatafiles` folder prior to each section. 
