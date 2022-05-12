@@ -5,4 +5,4 @@ Wind speed is broken down into u and v directions, to calculate wind speed: sqrt
 
 Data were obtained for each day from January 2007 through December 2018 and aggregated to form minimum, average, and maximum monthly values.
 
-See 'cities_loc.txt' for city id key.
+See 'cities_loc.txt' in the `MiscFiles` folder for city id key.
