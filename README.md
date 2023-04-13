@@ -2,6 +2,8 @@
 
 Code and data for an analysis of the water-energy demand nexus using climate analogs of 46 major US cities. The results from the analysis are currently under review.
 
+A permanent version of this repository is available on Zenodo: [![DOI](https://zenodo.org/badge/475520493.svg)](https://zenodo.org/badge/latestdoi/475520493).
+
 Two categories of data were collected: utility data and climate data. The utility data (folder: `UtilityData`) includes water and electricity use data obtained from local utilities. The climate data (folder: `ClimateData`) were obtained from the North American Regional Reanalysis. All data were collected in 2019.
 
 The code was developed in R version 4.1.2 and last ran on 26 April 2022. The code is contained in the file `climateanaloganalysis.R` and the associated Rdata files can be found in the `rdatafiles` folder. In order to run the code, the following R packages are required, with the version we used in parentheses: 
