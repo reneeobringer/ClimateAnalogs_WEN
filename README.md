@@ -1,6 +1,6 @@
 # WaterEnergyDemandNexus
 
-Code and data for an analysis of the water-energy demand nexus using climate analogs of 46 major US cities. The results from the analysis have been published in [_One Earth_]([https://doi.org/10.1061/(ASCE)WR.1943-5452.0001611](https://doi.org/10.1016/j.oneear.2023.10.004)). The manuscript can be cited as:
+Code and data for an analysis of the water-energy demand nexus using climate analogs of 46 major US cities. The results from the analysis have been published in [_One Earth_]([https://doi.org/10.1016/j.oneear.2023.10.004]). The manuscript can be cited as:
 
 ```bibtex
 @article{obringer2023,
