@@ -25,18 +25,16 @@ library(data.table)
 library(rlist)
 library(tidyverse)
 
-# set file path
-# NOTE: set this path to the folder on your personal machine which contains the downloaded data/cloned repo
-# for example: path <- '/Users/rqo5125/Downloads/ClimateAnalogs_WEN'
-
-path <- '    ' # main file path
+# Main Path
+path <- '/Users/rqo5125/Library/Mobile Documents/com~apple~CloudDocs/Documents/Research/GitHub/public/ClimateAnalogs_WEN/'
 
 # Directories
-datadir1 <- paste(path, '/UtilityData/rawdata', sep = '') 
+datadir1 <- paste(path, 'UtilityData/rawdata', sep = '') 
 datadir2 <- paste(path, '/ClimateData', sep = '')
 
 # OPTIONAL: create an output directory for any any non-rdata output files (e.g., csv, pdf, etc.)
-outputdir <- paste(path, '/output', sep = '')
+outputdir <- '/Users/rqo5125/Library/Mobile Documents/com~apple~CloudDocs/Documents/Research/2024_25/papers/scalingWEN/output'
+#outputdir <- paste(path, 'output', sep = '')
 #dir.create(outputdir)
 
 ########### LOAD DATA #############
@@ -298,7 +296,8 @@ ggplot(plotdata2007_18, aes(x = population, y = wateruse)) +
   theme_light() + facet_wrap(~year) + theme(text = element_text(size = 20), legend.position="bottom", legend.key.width = unit(3, "cm")) +
   geom_text_repel(data = plotdata2007_18[which(plotdata2007_18$cities %in% water_label_city_list),], aes(label = cities), nudge_y = 0.3, nudge_x = -0.25, 
                   box.padding = 1.95, point.padding = 0.85, segment.color = 'grey50') +
-  labs(color = "Avg Precipitation (mm)")
+  labs(color = "Avg Precipitation (mm)") +
+  scale_colour_gradient(low = '#c6dbef', high = '#08306b')
 dev.off()
 
 # all years
@@ -315,7 +314,8 @@ ggplot(plotdata_water, aes(x = population, y = wateruse)) +
   theme_light() + facet_wrap(~year) + theme(text = element_text(size = 20), legend.position="bottom", legend.key.width = unit(3, "cm")) +
   geom_text_repel(data = plotdata_water[which(plotdata_water$cities %in% water_label_city_list),], aes(label = cities), nudge_y = 0.3, nudge_x = -0.25, 
                   box.padding = 1.95, point.padding = 0.85, segment.color = 'grey50') +
-  labs(color = "Avg Precipitation (mm)")
+  labs(color = "Avg Precipitation (mm)") +
+  scale_colour_gradient(low = '#c6dbef', high = '#08306b')
 dev.off()
 
 # Build Up Plot Data - Electricity
@@ -668,7 +668,8 @@ ggplot(plotdata2007_18, aes(x = population, y = wateruse)) +
   theme_light() + facet_wrap(~year) + theme(text = element_text(size = 20), legend.position="bottom", legend.key.width = unit(3, "cm")) +
   geom_text_repel(data = plotdata2007_18[which(plotdata2007_18$cities %in% water_label_city_list),], aes(label = cities), nudge_y = 0.3, nudge_x = -0.25, 
                   box.padding = 1.95, point.padding = 0.85, segment.color = 'grey50') +
-  labs(color = "Avg Precipitation (mm)")
+  labs(color = "Avg Precipitation (mm)") +
+  scale_colour_gradient(low = '#c6dbef', high = '#08306b')
 dev.off()
 
 # all years
@@ -685,7 +686,8 @@ ggplot(plotdata_water, aes(x = population, y = wateruse)) +
   theme_light() + facet_wrap(~year) + theme(text = element_text(size = 20), legend.position="bottom", legend.key.width = unit(3, "cm")) +
   geom_text_repel(data = plotdata_water[which(plotdata_water$cities %in% water_label_city_list),], aes(label = cities), nudge_y = 0.3, nudge_x = -0.25, 
                   box.padding = 1.95, point.padding = 0.85, segment.color = 'grey50') +
-  labs(color = "Avg Precipitation (mm)")
+  labs(color = "Avg Precipitation (mm)") +
+  scale_colour_gradient(low = '#c6dbef', high = '#08306b')
 dev.off()
 
 # Build Up Plot Data - Electricity
@@ -1035,7 +1037,8 @@ ggplot(plotdata2007_18, aes(x = population, y = wateruse)) +
   theme_light() + facet_wrap(~year) + theme(text = element_text(size = 20), legend.position="bottom", legend.key.width = unit(3, "cm")) +
   geom_text_repel(data = plotdata2007_18[which(plotdata2007_18$cities %in% water_label_city_list),], aes(label = cities), nudge_y = 0.3, nudge_x = -0.25, 
                   box.padding = 1.95, point.padding = 0.85, segment.color = 'grey50') +
-  labs(color = "Avg Precipitation (mm)")
+  labs(color = "Avg Precipitation (mm)") +
+  scale_colour_gradient(low = '#c6dbef', high = '#08306b')
 dev.off()
 
 # all years
@@ -1052,7 +1055,8 @@ ggplot(plotdata_water, aes(x = population, y = wateruse)) +
   theme_light() + facet_wrap(~year) + theme(text = element_text(size = 20), legend.position="bottom", legend.key.width = unit(3, "cm")) +
   geom_text_repel(data = plotdata_water[which(plotdata_water$cities %in% water_label_city_list),], aes(label = cities), nudge_y = 0.3, nudge_x = -0.25, 
                   box.padding = 1.95, point.padding = 0.85, segment.color = 'grey50') +
-  labs(color = "Avg Precipitation (mm)")
+  labs(color = "Avg Precipitation (mm)") +
+  scale_colour_gradient(low = '#c6dbef', high = '#08306b')
 dev.off()
 
 # Build Up Plot Data - Electricity
