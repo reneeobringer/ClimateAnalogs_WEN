@@ -25,16 +25,18 @@ library(data.table)
 library(rlist)
 library(tidyverse)
 
-# Main Path
-path <- '/Users/rqo5125/Library/Mobile Documents/com~apple~CloudDocs/Documents/Research/GitHub/public/ClimateAnalogs_WEN/'
+# set file path
+# NOTE: set this path to the folder on your personal machine which contains the downloaded data
+# for example: path <- '/Users/rqo5125/Downloads/ClimateAnalogs_WEN-main'
+
+path <- '    ' # main file path
 
 # Directories
 datadir1 <- paste(path, 'UtilityData/rawdata', sep = '') 
 datadir2 <- paste(path, '/ClimateData', sep = '')
 
 # OPTIONAL: create an output directory for any any non-rdata output files (e.g., csv, pdf, etc.)
-outputdir <- '/Users/rqo5125/Library/Mobile Documents/com~apple~CloudDocs/Documents/Research/2024_25/papers/scalingWEN/output'
-#outputdir <- paste(path, 'output', sep = '')
+outputdir <- paste(path, 'output', sep = '')
 #dir.create(outputdir)
 
 ########### LOAD DATA #############
@@ -58,18 +60,24 @@ years_list <- c(2007:2018) # Condition to subset rows
 
 beta_wateruse <- numeric(length(years_list))
 intercept_wateruse <- numeric(length(years_list))
+CI95lower_wateruse <- numeric(length(years_list))
+CI95upper_wateruse <- numeric(length(years_list))
 R2_wateruse <- numeric(length(years_list))
 
 beta_elecuse <- numeric(length(years_list))
 R2_elecuse <- numeric(length(years_list))
 intercept_elecuse <- numeric(length(years_list))
+CI95lower_elecuse <- numeric(length(years_list))
+CI95upper_elecuse <- numeric(length(years_list))
 output_df <- data.frame()
 
 output_vars <- c("year", "beta_wateruse", "beta_elecuse",
                  "intercept_wateruse", "intercept_elecuse",
                  "r2_wateruse", "r2_elecuse",
                  "rmse_wateruse", "rmse_elecuse",
-                 "nrmse_wateruse", "nrmse_elecuse")
+                 "nrmse_wateruse", "nrmse_elecuse",
+                 "CI95lower_wateruse", "CI95upper_wateruse",
+                 "CI95lower_elecuse", "CI95upper_elecuse")
 
 # Loop through the cities
 my_df_list <- list()
@@ -120,6 +128,12 @@ for (i in 1:length(years_list)) {
   beta_wateruse <- coef(scaling_model_wateruse)
   beta_elecuse <- coef(scaling_model_elecuse)
   
+  # get confidence intervals
+  CI95lower_wateruse <- confint(scaling_model_wateruse)[2,1]
+  CI95upper_wateruse <- confint(scaling_model_wateruse)[2,2]
+  CI95lower_elecuse <- confint(scaling_model_elecuse)[2,1]
+  CI95upper_elecuse <- confint(scaling_model_elecuse)[2,2]
+  
   # The first element is the intercept, and the second is the slope (scaling exponent)
   intercept_wateruse <- beta_wateruse[1]
   scaling_exponent_wateruse <- beta_wateruse[2]
@@ -142,7 +156,9 @@ for (i in 1:length(years_list)) {
                                     scaling_exponent_elecuse, intercept_wateruse,
                                     intercept_elecuse, r_squared_wateruse,
                                     r_squared_elecuse, rmse_wateruse, rmse_elecuse,
-                                    nrmse_wateruse, nrmse_elecuse)
+                                    nrmse_wateruse, nrmse_elecuse, 
+                                    CI95lower_wateruse, CI95upper_wateruse,
+                                    CI95lower_elecuse, CI95upper_elecuse)
   
 }
 
@@ -429,17 +445,23 @@ summer_month_list <- c('6','7','8','9')
 beta_wateruse <- numeric(length(years_list))
 intercept_wateruse <- numeric(length(years_list))
 R2_wateruse <- numeric(length(years_list))
+CI95lower_wateruse <- numeric(length(years_list))
+CI95upper_wateruse <- numeric(length(years_list))
 
 beta_elecuse <- numeric(length(years_list))
 R2_elecuse <- numeric(length(years_list))
 intercept_elecuse <- numeric(length(years_list))
+CI95lower_elecuse <- numeric(length(years_list))
+CI95upper_elecuse <- numeric(length(years_list))
 output_df <- data.frame()
 
 output_vars <- c("year", "beta_wateruse", "beta_elecuse",
                  "intercept_wateruse", "intercept_elecuse",
                  "r2_wateruse", "r2_elecuse",
                  "rmse_wateruse", "rmse_elecuse",
-                 "nrmse_wateruse", "nrmse_elecuse")
+                 "nrmse_wateruse", "nrmse_elecuse",
+                 "CI95lower_wateruse", "CI95upper_wateruse",
+                 "CI95lower_elecuse", "CI95upper_elecuse")
 
 my_df_list <- list()
 for (condition in years_list) {
@@ -489,6 +511,12 @@ for (i in 1:length(years_list)) {
   beta_wateruse <- coef(scaling_model_wateruse)
   beta_elecuse <- coef(scaling_model_elecuse)
   
+  # get confidence intervals
+  CI95lower_wateruse <- confint(scaling_model_wateruse)[2,1]
+  CI95upper_wateruse <- confint(scaling_model_wateruse)[2,2]
+  CI95lower_elecuse <- confint(scaling_model_elecuse)[2,1]
+  CI95upper_elecuse <- confint(scaling_model_elecuse)[2,2]
+  
   # The first element is the intercept, and the second is the slope (scaling exponent)
   intercept_wateruse <- beta_wateruse[1]
   scaling_exponent_wateruse <- beta_wateruse[2]
@@ -511,7 +539,9 @@ for (i in 1:length(years_list)) {
                                     scaling_exponent_elecuse, intercept_wateruse,
                                     intercept_elecuse, r_squared_wateruse,
                                     r_squared_elecuse, rmse_wateruse, rmse_elecuse,
-                                    nrmse_wateruse, nrmse_elecuse)
+                                    nrmse_wateruse, nrmse_elecuse, 
+                                    CI95lower_wateruse, CI95upper_wateruse,
+                                    CI95lower_elecuse, CI95upper_elecuse)
 }
 
 # write to csv
@@ -797,17 +827,23 @@ winter_month_list <- c('12','1','2','3')
 beta_wateruse <- numeric(length(years_list))
 intercept_wateruse <- numeric(length(years_list))
 R2_wateruse <- numeric(length(years_list))
+CI95lower_wateruse <- numeric(length(years_list))
+CI95upper_wateruse <- numeric(length(years_list))
 
 beta_elecuse <- numeric(length(years_list))
 R2_elecuse <- numeric(length(years_list))
 intercept_elecuse <- numeric(length(years_list))
+CI95lower_elecuse <- numeric(length(years_list))
+CI95upper_elecuse <- numeric(length(years_list))
 output_df <- data.frame()
 
 output_vars <- c("year", "beta_wateruse", "beta_elecuse",
                  "intercept_wateruse", "intercept_elecuse",
                  "r2_wateruse", "r2_elecuse",
                  "rmse_wateruse", "rmse_elecuse",
-                 "nrmse_wateruse", "nrmse_elecuse")
+                 "nrmse_wateruse", "nrmse_elecuse",
+                 "CI95lower_wateruse", "CI95upper_wateruse",
+                 "CI95lower_elecuse", "CI95upper_elecuse")
 
 my_df_list <- list()
 for (condition in years_list) {
@@ -858,6 +894,12 @@ for (i in 1:length(years_list)) {
   beta_wateruse <- coef(scaling_model_wateruse)
   beta_elecuse <- coef(scaling_model_elecuse)
   
+  # Get Confidence Intervals
+  CI95lower_wateruse <- confint(scaling_model_wateruse)[2,1]
+  CI95upper_wateruse <- confint(scaling_model_wateruse)[2,2]
+  CI95lower_elecuse <- confint(scaling_model_elecuse)[2,1]
+  CI95upper_elecuse <- confint(scaling_model_elecuse)[2,2]
+  
   # The first element is the intercept, and the second is the slope (scaling exponent)
   intercept_wateruse <- beta_wateruse[1]
   scaling_exponent_wateruse <- beta_wateruse[2]
@@ -880,7 +922,9 @@ for (i in 1:length(years_list)) {
                                     scaling_exponent_elecuse, intercept_wateruse,
                                     intercept_elecuse, r_squared_wateruse,
                                     r_squared_elecuse, rmse_wateruse, rmse_elecuse,
-                                    nrmse_wateruse, nrmse_elecuse)
+                                    nrmse_wateruse, nrmse_elecuse, 
+                                    CI95lower_wateruse, CI95upper_wateruse,
+                                    CI95lower_elecuse, CI95upper_elecuse)
 }
 
 # write to csv
