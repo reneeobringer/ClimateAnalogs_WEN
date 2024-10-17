@@ -27,7 +27,7 @@ library(tidyverse)
 
 # set file path
 # NOTE: set this path to the folder on your personal machine which contains the downloaded data
-# for example: path <- '/Users/rqo5125/Downloads/ClimateAnalogs_WEN-main'
+# for example: path <- '/Users/rqo5125/Downloads/ClimateAnalogs_WEN'
 
 path <- '    ' # main file path
 
@@ -95,7 +95,7 @@ for (condition in years_list) {
   my_df <- data.frame()
   for (i in 1:length(ann_list)) {
     if (nrow(ann_list[[i]]) > 0) {
-      ann_avg <- ann_list[[i]]%>%
+      ann_avg <- ann_list[[i]] %>%
         group_by(year) %>%
         summarize(wateruse = mean(wateruse),
                   elecuse = mean(elecuse),
@@ -172,6 +172,17 @@ out_df_filename <- paste("results_yrly_all_w_p_e_ep_",
 setwd(outputdir)
 write.csv(output_df, out_df_filename, row.names = FALSE)
 
+# plot beta values
+plotdata <- data.frame('year' = rep(output_df$year, 2), 'betas' = c(output_df$beta_wateruse, output_df$beta_elecuse), 
+                       'CI95lower' = c(output_df$CI95lower_wateruse, output_df$CI95lower_elecuse), 
+                       'CI95upper' = c(output_df$CI95upper_wateruse, output_df$CI95upper_elecuse), 
+                       'utility' = c(rep('Water', 12), rep('Electricity', 12)))
+
+ggplot(plotdata, aes(x = year, y = betas, color = utility)) + geom_point() +
+  geom_pointrange(aes(ymin = CI95lower, ymax = CI95upper)) + guides(color = "none") +
+  facet_wrap(~utility, nrow = 2) + theme(text = element_text(size = 16)) +
+  theme_light() + scale_color_manual(values = c('#7f2704', '#08306b')) +
+  ylab('Beta Values') + xlab('Year')
 
 # READ IN CLIMATE DATA 
 # code copied from `climateanalogs.R` in GitHub repo
