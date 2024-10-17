@@ -4,3 +4,5 @@ Data was requested from January 2007 through December 2018, however, some cities
 Water use data were collected from local utilities via public records requests. Units are gallons/capita.
 
 Electricity use data were collected from the Electricity Information Administration. Units are MWh/capita.
+
+The raw data for each city, including the service population, can be found in the folder `rawdata`.
