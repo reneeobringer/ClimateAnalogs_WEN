@@ -178,11 +178,21 @@ plotdata <- data.frame('year' = rep(output_df$year, 2), 'betas' = c(output_df$be
                        'CI95upper' = c(output_df$CI95upper_wateruse, output_df$CI95upper_elecuse), 
                        'utility' = c(rep('Water', 12), rep('Electricity', 12)))
 
-ggplot(plotdata, aes(x = year, y = betas, color = utility)) + geom_point() +
+ggplot(plotdata, aes(x = year, y = betas, color = utility)) + geom_point() + theme_light() + 
   geom_pointrange(aes(ymin = CI95lower, ymax = CI95upper)) + guides(color = "none") +
   facet_wrap(~utility, nrow = 2) + theme(text = element_text(size = 16)) +
-  theme_light() + scale_color_manual(values = c('#7f2704', '#08306b')) +
+  scale_color_manual(values = c('#7f2704', '#08306b')) +
   ylab('Beta Values') + xlab('Year')
+
+# plot deviations (2018 only)
+plotdata <- data.frame(deviations = c(scaling_model_wateruse$residuals, scaling_model_elecuse$residuals), 
+                       utility = c(rep('Water', 39), rep('Electricity', 39)),
+                       city = rep(my_df$cityname, 2))
+
+ggplot(plotdata) + geom_bar(aes(x = city, y = deviations, fill = utility), stat = 'identity', position = 'dodge') +
+  facet_wrap(~utility, nrow = 2, scales = 'free_y') + ylab('Deviations') + xlab('') + theme_light() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1), text = element_text(size = 16)) +
+  scale_color_manual(values = c('#7f2704', '#08306b')) + guides(fill = "none") 
 
 # READ IN CLIMATE DATA 
 # code copied from `climateanalogs.R` in GitHub repo
