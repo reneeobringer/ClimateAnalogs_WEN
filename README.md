@@ -12,7 +12,7 @@ Code and data for an analysis of the water-energy demand nexus using climate ana
 }
 ```
 
-An additional analysis investigating the scaling properties of water and electricity consumption has been conducted. These results have been published in [_Environmental Research: Infrastructure and Sustainability_](https://doi.org/10.1016/j.oneear.2023.10.004). The manuscript can be cited as:
+An additional analysis investigating the scaling properties of water and electricity consumption has been conducted. These results have been published in [_Environmental Research: Infrastructure and Sustainability_](https://iopscience.iop.org/article/10.1088/2634-4505/ad951f/meta). The manuscript can be cited as:
 
 ```bibtex
 @article{adul2024,
@@ -44,7 +44,7 @@ The code in the file `climateanaloganalysis.R` was developed for the initial cli
 
 To run the code, users need to update the path to the folder downloaded or cloned from this repository. This change can be made on line 37 of `climateanaloganalysis.R`. Once this path is changed, the data directories will be assigned automatically after running lines 41-48 in `climateanaloganalysis.R`. The code can then be run sequentially or users can choose to run different sections, provided they load the rdata files in the `rdatafiles` folder prior to each section. 
 
-The code in the file `scalinganalysis.R` was developed for the recent investigation into the scaling properties of water and electricity consumption, which is currently under review. This script was last run on 17 October 2024 and does not have any associated Rdata files. In order to run the code, the following R packages are required, with the vesrion we used in parentheses: 
+The code in the file `scalinganalysis.R` was developed for the recent investigation into the scaling properties of water and electricity consumption, which  was published in [_Environmental Research: Infrastructure and Sustainability_](https://iopscience.iop.org/article/10.1088/2634-4505/ad951f/meta). This script was last run on 17 October 2024 and does not have any associated Rdata files. In order to run the code, the following R packages are required, with the vesrion we used in parentheses: 
 
 * dplyr (v1.0.10)
 * ggplot2 (v3.4..0)
