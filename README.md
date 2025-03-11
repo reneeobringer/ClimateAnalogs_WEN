@@ -16,12 +16,11 @@ An additional analysis investigating the scaling properties of water and electri
 
 ```bibtex
 @article{adul2024,
-  title={Urban scaling of water and electricity demand across the United States},
-  author={Adul, Joy and Chiluveru, Vijay Bhaskar and Obringer, Renee},
-  journal={Environmental Research: Infrastructure and Sustainability},
-  volume={4},
-  number={4},
-  year={2024}
+  title = {Urban scaling of water and electricity demand across the United States},
+  author = {Adul, Joy and Chiluveru, Vijay Bhaskar and Obringer, Renee},
+  journal = {Environmental Research: Infrastructure and Sustainability},
+  year = {2024},
+  doi = {10.1088/2634-4505/ad951f}
 }
 ```
 
