@@ -12,7 +12,18 @@ Code and data for an analysis of the water-energy demand nexus using climate ana
 }
 ```
 
-An additional analysis investigating the scaling properties of water and electricity consumption has been conducted. These results are currently under review.
+An additional analysis investigating the scaling properties of water and electricity consumption has been conducted. These results have been published in [_Environmental Research: Infrastructure and Sustainability_](https://doi.org/10.1016/j.oneear.2023.10.004). The manuscript can be cited as:
+
+```bibtex
+@article{adul2024,
+  title={Urban scaling of water and electricity demand across the United States},
+  author={Adul, Joy and Chiluveru, Vijay Bhaskar and Obringer, Renee},
+  journal={Environmental Research: Infrastructure and Sustainability},
+  volume={4},
+  number={4},
+  year={2024}
+}
+```
 
 A permanent version of this repository is available on Zenodo: [![DOI](https://zenodo.org/badge/484154465.svg)](https://zenodo.org/badge/latestdoi/484154465).
 
